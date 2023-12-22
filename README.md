@@ -1,5 +1,14 @@
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
+## Environment
+
+Setup an `.env` file containing:
+
+```
+NEXT_PUBLIC_WALLET_CONNECT_PROJECT_ID=
+NEXT_PUBLIC_ALCHEMY_API=
+```
+
 ## Getting Started
 
 First, run the development server:
