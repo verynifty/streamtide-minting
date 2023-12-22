@@ -23,9 +23,6 @@ import Events from 'components/render/events';
 import WatchEvents from 'components/render/watchEvents';
 
 import Uniswap from 'components/render/uniswap';
-import ReservoirSweep from 'components/render/reservoirSweep';
-import ReservoirNFTDisplay from 'components/render/reservoirNFTDisplay';
-import AirStack from 'components/render/airstack';
 import APICall from 'components/render/apiCall';
 
 import ERC20ABI from 'ABIS/ERC20.json';

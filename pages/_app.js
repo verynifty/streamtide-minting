@@ -27,19 +27,6 @@ import HeaderMetadata from '@/components/commons/headerMetadata';
 
 import '@/DateTimePicker.css';
 
-import {
-  ReservoirKitProvider,
-  lightTheme,
-} from '@reservoir0x/reservoir-kit-ui'
-
-const theme = lightTheme({
-  headlineFont: "Sans Serif",
-  font: "Serif",
-  primaryColor: "#323aa8",
-  primaryHoverColor: "#252ea5",
-})
-
-
 
 function MyApp({ Component, pageProps }) {
 
@@ -85,19 +72,6 @@ function MyApp({ Component, pageProps }) {
         <meta name="twitter:description" content={process.env.description} />
         <meta name="twitter:image" content="https://fastdapp.xyz/api/og?title=Fast%20Dapp&subtitle=Create%20websites%20for%20your%20DAPP%20in%20minutes." />      </Head>
       <HeaderMetadata />
-      <ReservoirKitProvider
-        options={{
-          chains: [{
-            id: 1,
-            baseApiUrl: "https://api.reservoir.tools",
-            default: true,
-            apiKey: process.env.NEXT_PUBLIC_RESERVOIR_API_KEY
-          }],
-          source: "reservoir.market"
-
-        }}
-        theme={theme}
-      >
         <WagmiConfig config={wagmiConfig}>
           <RainbowKitProvider chains={chains} theme={darkTheme()} showRecentTransactions={true}>
             <div class="h-screen">
@@ -106,7 +80,6 @@ function MyApp({ Component, pageProps }) {
             </div>
           </RainbowKitProvider>
         </WagmiConfig>
-      </ReservoirKitProvider >
       <Script src="https://scripts.simpleanalyticscdn.com/latest.js" />
       <noscript>
         {/* eslint-disable @next/next/no-img-element */}
