@@ -23,11 +23,14 @@ pnpm dev
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+You can start editing the page by modifying `app/index.js`. The page auto-updates as you edit the file.
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
 
 ## Learn More
+
+To learn more about [Fast Dapp](https://fastdapp.xyz), take a look at the following resources:
+
+- [Fast Dapp Documentation](https://docs.fastdapp.xyz)
 
 To learn more about Next.js, take a look at the following resources:
 
