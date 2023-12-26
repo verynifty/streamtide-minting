@@ -25,6 +25,15 @@ Open [http://localhost:3000](http://localhost:3000) with your browser to see the
 
 You can start editing the page by modifying `app/index.js`. The page auto-updates as you edit the file.
 
+## Launch TODO
+
+- [ ] Add environment variables (Alchemy, Wallet Connect)
+- [ ] Edit your app informations in `next.config.js` (title, description)
+- [ ] Add you Fast Dapp compatible code to `app/index.js`
+- [ ] OG image
+- [ ] Favicon
+- [ ] Deploy to Vercel 
+
 
 ## Learn More
 
