@@ -66,11 +66,13 @@ function MyApp({ Component, pageProps }) {
     <div data-theme="mytheme">
       <Head>
         <meta property="og:url" content={process.env.url} />
+        <meta property="og:title" content={process.env.title} />
+        <meta name="og:description" content={process.env.description} />
         <meta property="og:type" content="website" />
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content={process.env.title} />
         <meta name="twitter:description" content={process.env.description} />
-        <meta name="twitter:image" content="https://fastdapp.xyz/api/og?title=Fast%20Dapp&subtitle=Create%20websites%20for%20your%20DAPP%20in%20minutes." />      </Head>
+        </Head>
       <HeaderMetadata />
         <WagmiConfig config={wagmiConfig}>
           <RainbowKitProvider chains={chains} theme={darkTheme()} showRecentTransactions={true}>
