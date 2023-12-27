@@ -23,8 +23,6 @@ import { alchemyProvider } from 'wagmi/providers/alchemy';
 import { Toaster } from 'react-hot-toast';
 import Script from "next/script";
 
-import HeaderMetadata from '@/components/commons/headerMetadata';
-
 import '@/DateTimePicker.css';
 
 
@@ -72,16 +70,15 @@ function MyApp({ Component, pageProps }) {
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content={process.env.title} />
         <meta name="twitter:description" content={process.env.description} />
-        </Head>
-      <HeaderMetadata />
-        <WagmiConfig config={wagmiConfig}>
-          <RainbowKitProvider chains={chains} theme={darkTheme()} showRecentTransactions={true}>
-            <div class="h-screen">
-              <Toaster position="top-right" />
-              <Component {...pageProps} />
-            </div>
-          </RainbowKitProvider>
-        </WagmiConfig>
+      </Head>
+      <WagmiConfig config={wagmiConfig}>
+        <RainbowKitProvider chains={chains} theme={darkTheme()} showRecentTransactions={true}>
+          <div className="h-screen">
+            <Toaster position="top-right" />
+            <Component {...pageProps} />
+          </div>
+        </RainbowKitProvider>
+      </WagmiConfig>
       <Script src="https://scripts.simpleanalyticscdn.com/latest.js" />
       <noscript>
         {/* eslint-disable @next/next/no-img-element */}
