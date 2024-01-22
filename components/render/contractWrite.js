@@ -350,7 +350,6 @@ const WriteContract = (props) => {
                                             name="token_amount"
                                             id="token_amount"
                                             className="input input-bordered w-full join-item" placeholder="0.00"></input>
-                                        <button className="btn btn-disabled join-item rounded-r-full">{(argsStateTokens[index] != null ? argsStateTokens[index].symbol : '')}</button>
                                     </div>
                                 </div>
                             )

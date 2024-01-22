@@ -58,22 +58,14 @@ const ContractRead = (props) => {
                     functionName: props.functionName,
                 })
                 let args = props.args;
-                /*
-                if (args == null) {
-                    args = [];
-                    let functionInputs = getFunction().inputs;
-                    for (const input of functionInputs) {
-                        args.push(getDefaultValue(input.type));
-                    }
-                }
-                */
+                console.log("ARGS", args)
                 const res = await readContract({
                     address: props.address,
                     abi: props.abi,
                     functionName: functionName,
                     args: props.args,
                 })
-                console.log(res)
+                console.log("ContractRead:", res)
                 if (typeof props.returnValue === 'function') {
                     try {
                         let computed = props.returnValue(res);

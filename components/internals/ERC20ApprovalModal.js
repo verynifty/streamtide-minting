@@ -85,9 +85,9 @@ const ERC20ApprovalModal = (props) => {
 
   return (
     <dialog id="approval_modal" className={`modal ${isOpen ? "modal-open" : ""} `}>
-      <form method="dialog" className="modal-box">
+      <form method="dialog" className="modal-box text-neutral">
         <h3 className="text-lg font-bold">Approval required</h3>
-        <p className="py-4">You need to approve your {props.token.symbol} to be spent by {props.spender}.</p>
+        <p className="py-4">You need to approve your {props.token.symbol} to be sent to the staking contract.</p>
         {makeApproval()}
       </form>
       <form method="dialog" className="modal-backdrop">
