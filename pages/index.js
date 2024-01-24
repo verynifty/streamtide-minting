@@ -2,6 +2,8 @@ import Head from 'next/head'
 
 import { default as React, useState, useEffect, Suspense } from 'react';
 
+import Image from 'next/image'
+
 import { getAccount } from '@wagmi/core';
 import { useAccount } from 'wagmi';
 import { useNetwork, useSwitchNetwork } from 'wagmi'
@@ -95,10 +97,15 @@ const Page = (props) => {
               >
                 <path d="M457.778 0H6.10352e-05V578H688L457.778 0Z" fill="#F6FF00" />
               </svg>
-              <img
-                class="absolute left-0 bottom-0 max-h-full mt-10"
-                src="https://iili.io/JzDClbs.png"
-              />
+              <div class="absolute left-0 bottom-0 max-h-full">
+                <Image
+                  src="/header_left.png"
+                  width={0}
+                  height={0}
+                  sizes="90vw"
+                  style={{ width: 'auto', height: '100%' }}
+                />
+              </div>
             </div>
             <div class="items-center text-center justify-center pt-8 pb-8">
               <h1 class="text-6xl text-white font-bold mt-5">
@@ -129,10 +136,16 @@ const Page = (props) => {
               >
                 <path d="M229.887 0H687V578H0L229.887 0Z" fill="#F6FF00" />
               </svg>
-              <img
-                class="absolute right-0 bottom-0 max-h-full mt-10"
-                src="https://iili.io/JzDRneV.png"
-              />
+              <div class="absolute right-0 bottom-0 max-h-full">
+                <Image
+                  src="/header_right.png"
+                  width={0}
+                  height={0}
+                  sizes="90vw"
+                  style={{ width: 'auto', height: '80%' }}
+                />
+              </div>
+             
             </div>
           </div>
         </section>
@@ -214,8 +227,8 @@ const Page = (props) => {
       </section>
       <input type="checkbox" id="minting_modal" className="modal-toggle" />
       <div className="modal" role="dialog">
-        <div className="modal-box">
-          <h3 className="text-lg font-bold">Hello!</h3>
+        <div className="modal-box bg-primary text-black text-center">
+          <h3 className="text-3xl font-bold">MINT ARI !</h3>
           <p className="py-4">This modal works with a hidden checkbox!</p>
         </div>
         <label className="modal-backdrop" htmlFor="minting_modal">

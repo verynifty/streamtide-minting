@@ -1,7 +1,5 @@
 import './global.css';
-import { Inter } from 'next/font/google';
-
-const inter = Inter({ subsets: ['latin'] })
+import { Oswald } from 'next/font/google';
 
 import '@rainbow-me/rainbowkit/styles.css';
 
@@ -15,6 +13,7 @@ import {
   mainnet,
 } from 'wagmi/chains';
 
+const oswald = Oswald({ subsets: ['latin'] })
 
 
 import { publicProvider } from 'wagmi/providers/public';
@@ -61,7 +60,7 @@ function MyApp({ Component, pageProps }) {
   }, []);
 
   return (
-    <div data-theme="mytheme">
+    <div data-theme="mytheme" className={oswald.className}>
       <Head>
         <meta property="og:url" content={process.env.url} />
         <meta property="og:title" content={process.env.title} />
