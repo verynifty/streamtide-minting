@@ -36,8 +36,7 @@ import PleaseConnect from 'components/render/pleaseConnect';
 
 const Page = (props) => {
 
-  const tokenAddress = "0x90b8ff52b4dc225acf5c9a2409f92d1e062f39f3";
-  const stakingAddress = "0xD8E17E787D88164A66Eca0Cdf3B9A74cEFa9FB05";
+  const NFT_ADDRESS = "0x674827143dc67D2B6D6df4eb1070cE380d71c10b";
   const { address, isConnecting, isDisconnected } = useAccount()
 
   const [userAddress, setUserAddress] = React.useState(address);

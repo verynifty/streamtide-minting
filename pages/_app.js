@@ -10,7 +10,7 @@ import Head from 'next/head'
 import { getDefaultWallets, RainbowKitProvider, darkTheme } from '@rainbow-me/rainbowkit';
 import { configureChains, createConfig, WagmiConfig, useProvider } from 'wagmi';
 import {
-  mainnet,
+  sepolia,
 } from 'wagmi/chains';
 
 const oswald = Oswald({ subsets: ['latin'] })
@@ -28,7 +28,7 @@ import '@/DateTimePicker.css';
 function MyApp({ Component, pageProps }) {
 
   const [availableChains, setAvailableChains] = useState([
-    mainnet,
+    sepolia,
   ]);
 
   const { chains, publicClient, webSocketPublicClient } = configureChains(
