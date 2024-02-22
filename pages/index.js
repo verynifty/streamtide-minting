@@ -228,7 +228,27 @@ const Page = (props) => {
       <div className="modal" role="dialog">
         <div className="modal-box bg-primary text-black text-center">
           <h3 className="text-3xl font-bold">MINT ARI !</h3>
-          <p className="py-4">This modal works with a hidden checkbox!</p>
+          <div className="">
+            <ContractWrite
+            address={NFT_ADDRESS}
+            args={[1]}
+            abi={[
+              {
+                "inputs": [
+                  {
+                    "internalType": "uint256",
+                    "name": "_quantity",
+                    "type": "uint256",
+                    "steps": true
+                  }
+                ],
+                "name": "mint",
+                "outputs": [],
+                "stateMutability": "nonpayable",
+                "type": "function"
+              }
+            ]} />
+          </div>
         </div>
         <label className="modal-backdrop" htmlFor="minting_modal">
           Close
