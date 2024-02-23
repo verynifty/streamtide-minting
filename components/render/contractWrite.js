@@ -154,6 +154,7 @@ const WriteContract = (props) => {
     }
 
     async function getPreparedTransaction(throwError = false) {
+        console.log("getPreparedTransaction start")
         let tx = null;
         try {
             let args = [];
@@ -186,18 +187,23 @@ const WriteContract = (props) => {
                     args.push(arg);
                 }
             }
-            rawTransaction = ({ address: props.address, abi: props.abi, functionName: getFunction().name, args: args, value: parseEther(value + "") })
-            if (throwError) {
-                console.log("Preparing transaction: ", rawTransaction);
+            let valueToSend = parseEther(value + "");
+            if (props.onCalculateValue != null) {
+                valueToSend = (await props.onCalculateValue(args)) + "";
             }
+            rawTransaction = ({ address: props.address, abi: props.abi, functionName: getFunction().name, args: args, value: valueToSend })
+            console.log("SETTING prepareWriteContract")
             tx = await prepareWriteContract(rawTransaction);
+            console.log("SETTING prepareWriteContract", tx, rawTransaction)
+
         } catch (e) {
+            console.error("Error in getPreparedTransaction", e)
             if (throwError) {
                 throw e;
             }
         }
         setPreparedTransaction(tx);
-        return preparedTransaction;
+        return tx;
     }
 
     for (const [index, input] of getFunction().inputs.entries()) {
@@ -258,7 +264,7 @@ const WriteContract = (props) => {
     }
 
     function makePayable() {
-        if ((getFunction().payable || getFunction().stateMutability == "payable") && !getFunction().hideValue) {
+        if ((getFunction().payable || getFunction().stateMutability == "payable") && !getFunction().hideValue && props.onCalculateValue == null) {
             return (
                 <div>
                     <div className="form-control w-full ">
@@ -328,11 +334,11 @@ const WriteContract = (props) => {
                             return (
                                 <div className="w-full ">
                                     <div class="join">
-                                        <button class="btn join-item" onClick={e => argsStateSetters[index](parseInt(argsStateValues[index]) > 0 ? parseInt(argsStateValues[index]) - 1 : 0)}>-</button>
-                                        <input class="input join-item" value={argsStateValues[index]}
+                                        <button className="btn join-item" onClick={e => argsStateSetters[index](parseInt(argsStateValues[index]) > 0 ? parseInt(argsStateValues[index]) - 1 : 0)}>-</button>
+                                        <input className="input join-item" value={argsStateValues[index]}
                                             onChange={e => argsStateSetters[index](e.target.value)}
                                         />
-                                        <button class="btn join-item" onClick={e => argsStateSetters[index](parseInt(argsStateValues[index]) + 1)}>+</button>
+                                        <button className="btn join-item" onClick={e => argsStateSetters[index](parseInt(argsStateValues[index]) + 1)}>+</button>
                                     </div>
                                 </div>
                             )

@@ -36,7 +36,7 @@ import PleaseConnect from 'components/render/pleaseConnect';
 
 const Page = (props) => {
 
-  const NFT_ADDRESS = "0x674827143dc67D2B6D6df4eb1070cE380d71c10b";
+  const NFT_ADDRESS = "0xF493283Ca3AAf02aCd22B84991C4D56F23C4eE8c";
   const { address, isConnecting, isDisconnected } = useAccount()
 
   const [userAddress, setUserAddress] = React.useState(address);
@@ -244,10 +244,13 @@ const Page = (props) => {
                 ],
                 "name": "mint",
                 "outputs": [],
-                "stateMutability": "nonpayable",
+                "stateMutability": "payable",
                 "type": "function"
               }
-            ]} />
+            ]}
+            onCalculateValue={function(args) {
+              return args[0] * 10000000000000000;
+            }} />
           </div>
         </div>
         <label className="modal-backdrop" htmlFor="minting_modal">
