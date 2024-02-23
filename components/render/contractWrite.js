@@ -154,7 +154,6 @@ const WriteContract = (props) => {
     }
 
     async function getPreparedTransaction(throwError = false) {
-        console.log("getPreparedTransaction start")
         let tx = null;
         try {
             let args = [];
@@ -192,9 +191,7 @@ const WriteContract = (props) => {
                 valueToSend = (await props.onCalculateValue(args)) + "";
             }
             rawTransaction = ({ address: props.address, abi: props.abi, functionName: getFunction().name, args: args, value: valueToSend })
-            console.log("SETTING prepareWriteContract")
             tx = await prepareWriteContract(rawTransaction);
-            console.log("SETTING prepareWriteContract", tx, rawTransaction)
 
         } catch (e) {
             console.error("Error in getPreparedTransaction", e)
