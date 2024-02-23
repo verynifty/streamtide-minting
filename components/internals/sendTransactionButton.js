@@ -47,11 +47,9 @@ const SendTransactionButton = (props) => {
         let transactionRequest = props.preparedTransaction;
         // check if transactionRequest is a function
 
-        console.log("preparedTX", transactionRequest)
         if (typeof transactionRequest === 'function') {
             transactionRequest = await transactionRequest();
         }
-        console.log("preparedTX", transactionRequest)
 
         if (transactionRequest != null && transactionRequest.isError) {
             setIsLoading(false);
@@ -64,7 +62,6 @@ const SendTransactionButton = (props) => {
             let functionName = "";
             let from = "";
             let to = "";
-            console.log(transactionRequest)
             if (transactionRequest.config != null && transactionRequest.config.request != null && transactionRequest.config.request.abi != null) {
                 // THis is a contract write
                 tx = await writeContract(
